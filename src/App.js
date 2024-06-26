@@ -32,7 +32,7 @@ function App() {
 
   const handleFormSubmission = async (data, type) => {
     if(type === "new"){ //create
-      const response = await fetch (`${API_URL}/blog/`, {
+      await fetch (`${API_URL}/blog/`, {
         method: 'post',
         headers: {
           "Content-Type": "application/json"
@@ -41,7 +41,7 @@ function App() {
       })
       getPosts()
     }else{ //edit
-      const response = await fetch (`${API_URL}/blog/${data.id}/`, {
+      await fetch (`${API_URL}/blog/${data.id}/`, {
         method: 'put',
         headers: {
           "Content-Type": "application/json"
@@ -54,7 +54,7 @@ function App() {
 
 
   const deletePost = async (id) => {
-    const response = await fetch(`${API_URL}/blog/${id}`, {
+    await fetch(`${API_URL}/blog/${id}`, {
       method: 'delete'
     })
     getPosts()
